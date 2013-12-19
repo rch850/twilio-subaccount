@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  table
+    tr
+      th sid
+      th friendlyName
+      th status
+      th operations
+    each account in subaccounts
+      tr
+        td= account.sid
+        td= account.friendlyName
+        td= account.status
+        td
+          form(action="/accounts/" + account.sid, method="post")
+            input(type="hidden", name="_method", value="delete")
+            input(type="submit", value="DELETE")
+
+  h2 New Account
+  form(action="/accounts", method="post")
+    label friendlyName:
+      input(type="text", name="FriendlyName", value="", placeholder="myservice")
+    input(type="submit")
+

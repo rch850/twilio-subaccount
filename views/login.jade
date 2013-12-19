@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}.
+  p Login required.
+
+  form(action="/", method="get")
+    label accountSid:
+      input(type="text", name="accountSid", value="", placeholder="AC1234...")
+    label authToken:
+      input(type="text", name="authToken", value="", placeholder="6c2f....")
+    input(type="submit", value="login")
+
